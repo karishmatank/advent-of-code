@@ -1,5 +1,5 @@
 # Read in data, split by comma to get each range
-with open("../data/day_2.txt") as f:
+with open("../../data/day_2.txt") as f:
     data = f.read()
 
 data = data.split(",")

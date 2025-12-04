@@ -5,7 +5,7 @@ class Dial:
 
     def __init__(self):
         self.initialize_position()
-        self.document = Document('../data/day_1.txt')
+        self.document = Document('../../data/day_1.txt')
         self._count_zero = 0
 
     def initialize_position(self):

@@ -69,7 +69,7 @@ def get_largest_joltage(bank, num_batteries):
 
 total_voltage = 0
 
-with open("../data/day_3.txt") as file:
+with open("../../data/day_3.txt") as file:
     for line in file:
         line = line.replace("\n", "")
         total_voltage += get_largest_joltage(line, 12)
