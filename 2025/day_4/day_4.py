@@ -1,7 +1,7 @@
 ROLL_ICON = "@"
 EMPTY_ICON = "."
 
-with open("../../data/day_4.txt") as file:
+with open("day_4.txt") as file:
     data = file.readlines()
 
 data = [i.replace("\n", "") for i in data]

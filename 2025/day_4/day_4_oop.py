@@ -6,7 +6,7 @@ class Grid:
 
     def _initialize_grid(self):
         """Read in grid data"""
-        with open("../../data/day_4.txt") as file:
+        with open("day_4.txt") as file:
             data = file.readlines()
 
         data = [row.replace("\n", "") for row in data]
