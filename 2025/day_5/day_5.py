@@ -4,9 +4,6 @@
 fresh_id_ranges = []
 candidate_ids = []
 
-min_id = None
-max_id = None
-
 with open('day_5.txt', 'r') as file:
     for line in file:
         line = line.replace("\n", "")
@@ -15,12 +12,6 @@ with open('day_5.txt', 'r') as file:
         if "-" in line:
             start, end = [int(num) for num in line.split("-")]
             fresh_id_ranges.append(range(start, end + 1)) # The ranges we get are inclusive of start and end
-
-            if min_id is None or start < min_id:
-                min_id = start
-
-            if max_id is None or end > max_id:
-                max_id = end
         
         # Skip over the empty line
         elif line == "":
