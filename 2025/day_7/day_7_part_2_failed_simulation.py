@@ -1,0 +1,93 @@
+"""
+.......S.......
+.......|.......
+......|^.......
+......|........
+
+For the mini example above, there are 2 possible timelines, either it splits left or right.
+
+.......S.......
+.......|.......
+......|^.......
+......|........
+.....|^.^......
+.....|.........
+
+For this expanded example, there are 4 possible timelines, either it goes LL, LR, RL, or RR
+
+.......S.......  
+.......|.......
+......|^.......
+......|........
+.....|^.^......
+.....|.........
+....|^.^.^.....
+....|..........
+
+Now, there are 8 possible timelines, LLL, LLR, LRL, LRR, RLL, RLR, RRL, RRR
+
+.......S.......
+.......|.......
+......|^.......
+......|........
+.....|^.^......
+.....|.........
+....|^.^.^.....
+....|..........
+...|^.^...^....
+...|...........
+
+LLLL, LLLR, LLRL, LLRR, LRLL, LRLR, LRR, RLLL, RLLR, RLR, RRL, RRRL, RRRR => 13
+"""
+import random
+
+# Read in data
+with open('day_7.txt', 'r') as file:
+    data = file.readlines()
+
+
+# data = [
+#     ".......S.......",
+#     ".......|.......",
+#     "......|^.......",
+#     "......|........",
+#     ".....|^.^......",
+#     ".....|.........",
+#     "....|^.^.^.....",
+#     "....|..........",
+#     "....^|^...^....",
+#     ".....|.........",
+#     "...^.^|..^.^...",
+#     "......|........",
+#     "..^..|^.....^..",
+#     ".....|.........",
+#     ".^.^.^|^.^...^.",
+#     "......|........"
+# ]
+
+timelines = set()
+
+def simulation():
+    beam_idx = None
+    path = []
+
+    for line in data:
+        for current_idx in range(len(line)):
+            if line[current_idx] == 'S':
+                beam_idx = current_idx
+                path.append(beam_idx)
+            
+            # Split occurs if we run into ^ and beam exists in same position of line above
+            if line[current_idx] == '^' and current_idx == beam_idx:
+                # Pick a location for the beam
+                beam_idx = random.choice((current_idx - 1, current_idx + 1))
+
+                # Record change in path
+                path.append(beam_idx)
+    
+    timelines.add(tuple(path))
+
+for _ in range(10000000):
+    simulation()
+
+print(len(timelines))
