@@ -4,6 +4,9 @@ We can then try to multiply those 3 to find the total # of paths that go through
 Saw this hint on reddit
 
 Also saw hint on reddit to use lru_cache, what a timesaver, so quick
+- This is possible with this implementation because lru_cache will cache the calls to traverse_function with the same input
+- We've now simplified the input to include one argument, vs the history that I was trying to attach alongside it
+- It didn't cache before because that history would always be different based on different paths leading up to the node
 """
 
 from functools import lru_cache
