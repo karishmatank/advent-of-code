@@ -33,4 +33,4 @@ for instruction in valid_instructions:
     elif instruction == "don't()":
         enabled = False
 
-print(total_sum)
+print(total_sum) # Part 2 complete!
