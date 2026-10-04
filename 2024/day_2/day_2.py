@@ -51,4 +51,4 @@ for report in reports:
         if is_valid_report(variation):
             total_valid += 1
             break
-print(total_valid)
+print(total_valid) # Part 2 complete!
